@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+let bank = 1000;
+let bet
+let variant
+let vin
+function random(to) {
+let	target = Math.round(Math.random() * to);// функция случайного числа
+return target; }
+
+
+let color = [] // создание массива с цветами
+for (let i = 0; i < 36; i = i + 1) {
+	if (i == 0){
+		color[i] = "green";
+	} else if (i % 2 == 0) {
+		color[i] = "red";
+	}else {
+		color[i] = "black"
+	}
+}
+while (bank > 0) { 
+	bet = prompt("Укажите сумму ставки: ");
+	if (bet > bank) {
+		bet = bank;
+		alert("Вы играете All in!!!")}
+
+		else if (bet == "quit") {
+	
+break;}
+variant = prompt ("Введите ваш вариант: число, black или red:");
+target = random(36);
+let color1 = color[target]
+if (target == variant) {
+  vin = bet * 35;
+  bank = bank + vin
+  alert("вы выйграли " + vin + " cr!!!");
+} else if (variant == color[target]) { 	
+	vin = bet * 2;
+  bank = bank + vin
+  alert("вы выйграли " + vin + " cr!!!");
+ }  else { 
+
+	bank = bank - bet; }
+alert("выпало: " + target + color[target] + "  Ваш банк составляет: " + bank + " cr");
+
+}
+
+</script>
+
